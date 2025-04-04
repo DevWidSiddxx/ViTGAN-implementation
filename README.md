@@ -63,7 +63,7 @@ If you encounter issues:
 ## Contributors
 - **Siddharth** - Project Lead & Developer
 - - **Abinaya Vina** -  Developer
-  - - **Prajasree** -  Developer
+  -  **Prajasree** -  Developer
 
 ## License
 This project is licensed under the MIT License.
