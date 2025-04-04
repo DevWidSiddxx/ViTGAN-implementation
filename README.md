@@ -1,53 +1,71 @@
-# Generative Adversarial Network (GAN) - Image Quality Evaluation
+# VITGAN: Vision Transformer GAN for Image Generation and Analysis
 
-## Project Overview
-This project implements a Generative Adversarial Network (GAN) and evaluates generated images using various quality metrics. The model uses **EfficientNetB0** for feature extraction and applies standard image similarity and classification metrics.
+## Overview
+VITGAN (Vision Transformer GAN) is an advanced deep learning model that leverages Vision Transformers (ViT) and Generative Adversarial Networks (GANs) for high-quality image generation and analysis. This project integrates **EfficientNet**, **InceptionV3**, and **structural similarity metrics** to assess image quality and model performance.
+
+## Features
+- **Vision Transformer (ViT) based GAN** for image generation.
+- **EfficientNet & InceptionV3** for feature extraction.
+- **Image Quality Metrics**: SSIM, PSNR, and FID.
+- **Performance Metrics**: Accuracy, Precision, Recall, F1-score, AUROC.
+- **Pre-trained Model Weights** for faster training.
 
 ## Installation
-Ensure you have the required dependencies installed before running the code.
+To set up the environment, install the required dependencies:
 
 ```bash
-pip install tensorflow opencv-python numpy scikit-image scipy scikit-learn
+pip install tensorflow numpy opencv-python scikit-image scipy scikit-learn
 ```
 
-## Key Features
-- **Image Quality Metrics:**
-  - **SSIM (Structural Similarity Index Measurement)** - Higher is better
-  - **PSNR (Peak Signal-to-Noise Ratio)** - Higher is better
-  - **FID (Fréchet Inception Distance)** - Lower is better
-  
-- **Classification Metrics:**
-  - **Accuracy**
-  - **Precision**
-  - **Recall (TPR - True Positive Rate)**
-  - **F1 Score**
-  - **False Positive Rate (FPR)**
-  - **AUROC (Area Under the ROC Curve)**
+## Dataset
+Ensure the dataset is structured properly before training:
+```
+/data
+├── train
+│   ├── class_1
+│   ├── class_2
+│   └── ...
+├── test
+│   ├── class_1
+│   ├── class_2
+│   └── ...
+```
 
-## Usage
-Run the following command to execute the model and generate results:
-
+## Training
+To train VITGAN, run:
 ```python
-python generate.py
+python train.py --epochs 50 --batch_size 32 --learning_rate 0.0002
+```
+### Hyperparameters
+- **Epochs:** 50
+- **Batch Size:** 32
+- **Learning Rate:** 0.0002
+
+## Evaluation
+Run evaluation on test images:
+```python
+evaluate.py --model_path vitgan_model.h5
 ```
 
+### Metrics
+- **SSIM**: Measures structural similarity.
+- **PSNR**: Peak Signal-to-Noise Ratio.
+- **FID**: Fréchet Inception Distance.
+- **AUROC, Precision, Recall, F1-score** for classification tasks.
 
-
-## Model Details
-- **Base Model:** EfficientNetB0
-- **Dataset:** Custom dataset (Modify in `generate.py`)
-- **Epochs:** To be configured based on dataset size
-- **Hyperparameters:** Learning rate, batch size (Modify as needed)
 
 ## Troubleshooting
-If you encounter import errors, ensure all dependencies are installed. You may also run:
+If you encounter issues:
+- Ensure all dependencies are installed properly.
+- Check the dataset structure.
+- Verify model parameters before training.
 
-```bash
-pip install --upgrade tensorflow keras numpy
-```
-
-## Contributing
-Feel free to fork this repository and enhance the project!
+## Contributors
+- **Siddharth** - Project Lead & Developer
+- - **Abinaya Vina** -  Developer
+  - - **Prajasree** -  Developer
 
 ## License
-MIT License
+This project is licensed under the MIT License.
+
+
